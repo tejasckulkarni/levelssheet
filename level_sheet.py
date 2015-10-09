@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 #water level file
-level_file = 'F:\Work\Biome\Hobo_Biome.csv'
+level_file = 'E:\Tejas\Work\Biome\Hobo_Biome.csv'
 #converting csv file to pandas dataframe
 level_df = pd.read_csv(level_file, sep='\t', header=0)
 #Printing first 5 lines in the csv file. Similarly tail () include no. of line to be seen.

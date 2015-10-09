@@ -9,7 +9,7 @@ def read_correct_ch_dam_data(csv_file, calibration_slope, calibration_intercept)
     :param csv_file:
     :return: calibrated and time corrected data
     """
-    water_level = pd.read_csv(csv_file, skiprows=9, sep=',', header=0,
+    water_level = pd.read_csv(E:\Tejas\Work\ATREE\RNE\Jakkur_WB_Data\Inlet4_HA_Cap\Stage_data\Raw_Data\JAKKUR_002_001, skiprows=9, sep=',', header=0,
                               names=['scan no', 'date', 'time', 'raw value', 'calibrated value'])
     water_level['calibrated value'] = (water_level['raw value'] * calibration_slope) + calibration_intercept  # in cm
     # water_level['calibrated value'] = np.round(water_level['calibrated value']/resolution_ody)*resolution_ody

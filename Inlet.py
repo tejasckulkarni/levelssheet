@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 def get_waterlevel( cal_value ):
+    #Equation for calibrated water level values
     return 1.084*cal_value + 2053
+    #Similarly equations for water level to surface area values
 def get_surface_area(cal_value):
    return 0
 def get_velocity(cal_value):
@@ -21,7 +23,5 @@ for index, row in Agstream_df.iterrows():
 print Agstream_df
 Agstream_df.to_csv(path_or_buf='E:\Tejas\Work\ATREE\RNE\Jakkur_WB_Data\Inlet4_HA_Cap\Stage_data\Synt_Data\JAKKUR_002_001.csv', sep=',')
    #print row['calibrated value'],get_waterlevel(row['calibrated value'])
-
-
 
 
