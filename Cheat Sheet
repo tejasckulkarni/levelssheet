@@ -1,0 +1,2 @@
+#Converting timestamp to date time format 
+df['timestamp'] = pd.to_datetime(df[('tsUnix')],unit='ms')
