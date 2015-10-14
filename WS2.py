@@ -8,4 +8,5 @@ weather_file ='E:\Tejas\JK\\data_27.csv'
 df = pd.read_csv(weather_file,sep=',', header=1,
                           names=['id', 'tsUnix', 'P', 'RH','Rain','T','__rssi'])
 df['timestamp'] = pd.to_datetime(df[('tsUnix')],unit='ms')
-print df.head()
+df.resample('S',how=sum)
+print df['timestamp']
