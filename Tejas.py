@@ -31,7 +31,7 @@ for i in range(1, 3, 1):
 
 plt.show()
 # print water_level_13.head()
-raise SystemExit(0)
+#raise SystemExit(0)
 
 water_level_30min = pd.concat([water_level_1, water_level_2, water_level_3], axis=0)
 water_level_30 = water_level_30min.sort()
@@ -39,10 +39,10 @@ rounded = np.array(water_level_30min.index, dtype='datetime64[m]')
 water_level_30min = water_level_30min.set_index(rounded)
 start_time_30 = min(water_level_30min.index)
 end_time_30 = max(water_level_30min.index)
-# new_index_30min = pd.date_range(start=start_time_30.strftime('%Y-%m-%d %H:%M'), end=end_time_30.strftime('%Y-%m-%d %H:%M'), freq='30min')
+ #new_index_30min = pd.date_range(start=start_time_30.strftime('%Y-%m-%d %H:%M'), end=end_time_30.strftime('%Y-%m-%d %H:%M'), freq='30min')
 # if type(new_index_30min) is list:
-#     print "list"
-# else:
+ #    print "list"
+ #else:
 #     print "no"
 # raise SystemExit(0)
 new_index_30 = pd.date_range(start=start_time_30, end=end_time_30, freq='30min')
