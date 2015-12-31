@@ -1,0 +1,36 @@
+__author__ = 'Tejas'
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import timedelta
+file = 'E:\\Model\Outlet\O_H3.csv'
+df = pd.read_csv(file, skiprows=0,sep=',',
+                    names= ['','sl','date', 'time', 'Raw value', 'Calibrated value','water level','surface area','velocity','volume'])
+
+print df.head()
+format = '%d-%m-%Y  %H:%M:%S'
+df['date_time'] = pd.to_datetime(df['date'] + df['time'], format=format)
+df.set_index(df['date_time'],inplace=True)
+
+c_str = ' 24:00:00'
+for index, row in df.iterrows():
+    x_str = row['time']
+    if x_str == c_str:
+        # convert string to datetime object
+        r_date = pd.to_datetime(row['date'], format='%d-%m-%Y ')
+        # add 1 day
+        c_date = r_date + timedelta(days=1)
+        # convert datetime to string
+        c_date = c_date.strftime('%d-%m-%Y ')
+        c_time = ' 00:00:00'
+        df['date'][index] = c_date
+        df['time'][index] = c_time
+#defining date and time index to the dataframe
+
+df_H = df.resample('12H',how=np.average)
+df_H.to_csv(path_or_buf='E:\Model\Outlet\O_12H.csv', sep=',')
+fig=plt.figure()
+plt.bar(df.index, df['volume'], width=0.15, color='b')
+#Rotating the strings in the X axis
+fig.autofmt_xdate(rotation=90)
+plt.show()
